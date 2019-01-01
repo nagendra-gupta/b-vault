@@ -1,7 +1,7 @@
 import { Client } from './client.model';
 import { Item } from './item.model';
 
-export interface Transaction {
+export class Transaction {
   id: string;
   created : Date;
   client : Client;
@@ -10,4 +10,5 @@ export interface Transaction {
   details : string;
   item : Item;
   quantity : number;
+  rate : number;
 }

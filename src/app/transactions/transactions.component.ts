@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../models/client.model';
+import { Item } from '../models/item.model';
 
 @Component({
   selector: 'app-transactions',
@@ -8,14 +9,27 @@ import { Client } from '../models/client.model';
 })
 export class TransactionsComponent implements OnInit {
 
-  client : Client;
+  selectedClient : Client;
   filteredClients : Client[];
+
+  selectedItem : Item;
+  filteredItems : Item[];
+
+  quantity : string;
+  rate : string;
+  transactionDetail : string;
+  debit:boolean;
   constructor() { }
 
   ngOnInit() {
+
   }
 
   filterClients(event:any) {
+    let query : string = event.query;
+  }
+
+  filterItems(event:any) {
     let query : string = event.query;
   }
 

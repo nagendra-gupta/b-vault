@@ -1,3 +1,27 @@
-<p>
-  transaction-row works!
-</p>
+<div [ngClass]="{debit : transaction.debit, credit : !transaction.debit}">
+
+<div class="ui-g">
+  <div class="ui-g-2">
+    {{transaction.client.name}}
+  </div>
+  <div class="ui-g-2">
+    {{transaction.item.name}}
+  </div>
+  <div class="ui-g-1">
+    {{transaction.quantity}}
+  </div>
+  <div class="ui-g-1">
+    {{transaction.rate}}
+  </div>
+  <div class="ui-g-1">
+    {{transaction.rate * transaction.quantity}}
+  </div>
+  <div class="ui-g-1">
+    {{transaction.debit ? 'Debit' : 'Credit'}}
+  </div>
+  <div class="ui-g-4">
+    {{transaction.details}}
+  </div>
+</div>
+
+</div>

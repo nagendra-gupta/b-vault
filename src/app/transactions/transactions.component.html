@@ -2,13 +2,12 @@
   <div class="ui-g-12">
     <p-panel header="Add Transaction" [toggleable]="true">
       <div class="ui-g">
-        <div class="ui-g-12">
+        <div class="ui-g-8">
       <div class="ui-inputgroup">
-      <p-autoComplete [(ngModel)]="client" [suggestions]="filteredClients" (completeMethod)="filterClients($event)" placeholder="Search Client" [minLength]="2" >
-          <ng-template let-brand pTemplate="item" >
+      <p-autoComplete class="p-autocomplete"  [style]="{'width':'100%'}" [inputStyle]="{'width': '100%'}" [(ngModel)]="selectedClient" [suggestions]="filteredClients" (completeMethod)="filterClients($event)" placeholder="Search Client" [minLength]="2" >
+          <ng-template let-client pTemplate="clientRow" >
               <div class="ui-helper-clearfix">
-                  <img src="assets/showcase/images/demo/car/{{brand}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
-                  <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brand}}</div>
+                  <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{client.name}} , {{client.city}}</div>
               </div>
           </ng-template>
     </p-autoComplete>
@@ -17,15 +16,98 @@
     </div>
     </div>
 
+
+      <p-fieldset >
+        <p-header>Transaction</p-header>
+         <h4 *ngIf="selectedClient">{{selectedClient.name}} , {{selectedClient.city}}</h4>
+         <div class="ui-g">
+            <div class="ui-g-8">
+
+
+         <div class="ui-inputgroup" style="width: 100%">
+            <p-autoComplete [(ngModel)]="selectedItem" [suggestions]="filteredItemss" class="p-autocomplete"  [style]="{'width':'100%'}" [inputStyle]="{'width': '100%'}" (completeMethod)="filterItems($event)" placeholder="Search Items" field="name" [minLength]="1" ></p-autoComplete>
+            <span class="ui-inputgroup-addon"><i class="pi pi-search"></i></span>
+         </div>
+         </div></div>
+         <div class="ui-g">
+
+            <div class="ui-g-1">
+              Item
+            </div>
+            <div class="ui-g-3">
+              <h3 *ngIf="selectedItem">{{selectedItem.name}}</h3>
+            </div>
+            <div class="ui-g-1">
+              Type
+            </div>
+            <div class="ui-g-3 ui-inputgroup">
+              <p-inputSwitch [(ngModel)]="debit"></p-inputSwitch>
+              <div class="divider">
+
+              </div>
+              <div class="p-inputSwitch"> {{debit ? 'Debit' : 'Credit'}}</div>
+            </div>
+
+         </div>
+         <div class="ui-g">
+           <div class="ui-g-1">
+
+             Quantity
+           </div>
+           <div class="ui-g-3">
+
+             <input   type="text" pInputText [style]="{'width':'100%'}" class="p-input"  [(ngModel)]="quantity" pKeyFilter="pint"/>
+           </div>
+            <div class="ui-g-1">
+              Rate
+            </div>
+            <div class="ui-g-3">
+              <input   type="text" pInputText [style]="{'width':'100%'}" class="p-input"  [(ngModel)]="rate" pKeyFilter="pnum"/>
+            </div>
+
+
+         </div>
+
+         <div class="ui-g">
+            <div class="ui-g-2">
+              Transaction Details
+            </div>
+            <div class="ui-g-6">
+              <textarea  pInputTextarea class="p-textArea" [style]="{'width':'100%'}"  autoResize="autoResize" [(ngModel)]="transactionDetail"></textarea>
+            </div>
+         </div>
+         <div class="ui-g">
+           <div class="ui-g-7">
+           </div>
+           <div class="ui-g-1" >
+              <button pButton type="button" label="Add" class="ui-button-primary" class="p-button" [style]="{'width':'100%'}"></button>
+           </div>
+           </div>
+      </p-fieldset>
+
     </p-panel>
   </div>
 </div>
 <div class="ui-g">
   <div class="ui-g-12">
     <p-panel header="Transactions" [toggleable]="true">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <app-transaction-header-row></app-transaction-header-row>
+          <app-transaction-row></app-transaction-row>
+          <app-transaction-row *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-row>
+          <app-transaction-total-row></app-transaction-total-row>
+        </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-11">
 
-        <app-transaction-row *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction-row>
-        <button pButton type="button" label="Submit" class="ui-button-primary" (click)="unlock()"></button>
+            </div>
+            <div class="ui-g-1">
+              <button pButton type="button" label="Submit" class="ui-button-primary" (click)="unlock()"></button>
+              </div>
+          </div>
+
     </p-panel>
   </div>
 </div>

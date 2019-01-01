@@ -23,6 +23,9 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { SettingsComponent } from './settings/settings.component';
 import {ChartModule} from 'primeng/chart';
 import {DataViewModule} from 'primeng/dataview';
+import {FieldsetModule} from 'primeng/fieldset';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -34,7 +37,9 @@ import { ReportsComponent } from './reports/reports.component';
 import { TopTransactionsComponent } from './top-transactions/top-transactions.component';
 import { TopClientsComponent } from './top-clients/top-clients.component';
 import { TopDebtorsComponent } from './top-debtors/top-debtors.component';
-
+import {InputSwitchModule} from 'primeng/inputswitch';
+import { TransactionHeaderRowComponent } from './transaction-header-row/transaction-header-row.component';
+import { TransactionTotalRowComponent } from './transaction-total-row/transaction-total-row.component';
 
 const routes : Routes = [
   {path : '' , component : LoginComponent, data: { title: 'Welcome to Vault' }},
@@ -53,7 +58,9 @@ const routes : Routes = [
     ReportsComponent,
     TopTransactionsComponent,
     TopClientsComponent,
-    TopDebtorsComponent
+    TopDebtorsComponent,
+    TransactionHeaderRowComponent,
+    TransactionTotalRowComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,10 @@ const routes : Routes = [
     ChartModule,
     DataViewModule,
     AutoCompleteModule,
+    FieldsetModule,
+    InputTextareaModule,
+    KeyFilterModule,
+    InputSwitchModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects])

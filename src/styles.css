@@ -14,7 +14,39 @@ body { background-color: #272f3a; color : white }
 }
 
 .divider{
-    width:5px;
+    width:10px;
     height:auto;
     display:inline-block;
+}
+
+.p-autocomplete{
+    width: 100%;
+}
+
+.p-input {
+  width: 100%;
+  vertical-align: middle;
+}
+.p-textArea {
+  width: 100%;
+  vertical-align: middle;
+}
+.p-button {
+  width: 100%;
+  vertical-align: middle;
+}
+.p-inputSwitch {
+  vertical-align: middle;
+}
+.debit {
+  background-color:   #FF6384;
+  color: black;
+}
+.credit {
+  background-color: #8CE8A4;
+  color: black;
+}
+.header {
+  background-color: #4A5459;
+  font-weight: bold;
 }
