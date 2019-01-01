@@ -1,0 +1,14 @@
+<div id="login">
+
+<div id="vault">
+  <img src="../../assets/images/vault-icon.png" alt="Smiley face" height="100" width="100"/>
+</div>
+<div class="ui-inputgroup">
+
+  <span class="ui-float-label">
+    <input id="float-input" type="text" size="30" [(ngModel)]="key" pInputText>
+    <label for="float-input">Enter Your Key</label>
+  </span>
+    <button pButton type="button" label="Unlock" class="ui-button-success" (click)="unlock()"></button>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+      <p-menubar id="menuBar" [model]="items">
+        <label id="welcome">Welcome to Business Vault</label>
+        <div class="divider">
+          </div>
+        <button pButton label="Logout" icon="fa fa-sign-out"></button>
+    </p-menubar>
+  </div>
+</div>
+<div class="ui-g">
+
+  <div class="ui-g-12">
+     <div *ngIf="visibleDashboard">
+       <app-dashboard></app-dashboard>
+      </div>
+      <div *ngIf="visibleSettings">
+        <app-settings></app-settings>
+       </div>
+       <div *ngIf="visibleTransactions">
+         <app-transactions></app-transactions>
+        </div>
+  </div>
+</div>
+
+<!-- Side navigation -->

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body { background-color: #272f3a; color : white }
+
+#login {
+  position: absolute;
+
+  top: 30%;
+  left: 40%;
+
+}
+
+#vault {
+  text-align: center;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

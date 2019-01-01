@@ -1,0 +1,9 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-panel header="Top 10 Recent Transactions" [toggleable]="true">
+
+        <app-transaction-row *ngFor="let transaction of transactions |async" [transaction]="transaction"></app-transaction-row>
+
+    </p-panel>
+  </div>
+</div>
